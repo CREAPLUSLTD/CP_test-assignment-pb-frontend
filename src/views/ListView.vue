@@ -57,9 +57,9 @@ export default defineComponent({
                 return;
             }
 
-            const query = this.searchQuery.toLowerCase();
+            const query = this.searchQuery.toLowerCase().replace(" ", "");
             this.filteredPersons = this.persons.filter(person => {
-                return person.first_name.toLowerCase().includes(query) || person.last_name.toLowerCase().includes(query)
+                return `${person.first_name.toLowerCase()}${person.last_name.toLowerCase()}`.includes(query)
             })
         }
     },
