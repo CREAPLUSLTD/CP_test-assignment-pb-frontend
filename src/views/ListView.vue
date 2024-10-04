@@ -18,6 +18,9 @@
                 </div>
             </div>
         </div>
+        <div v-else class="text-center text-gray-400 font-thin">
+            No contacts
+        </div>
     </div>
 </template>
 
@@ -64,7 +67,7 @@ export default defineComponent({
         }
     },
     async created() {
-        const res = await axios("persons.json");
+        const res = await axios("https://creaplus.free.beeceptor.com/persons");
         this.persons = res.data;
         this.filteredPersons = this.persons
     }
